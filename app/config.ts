@@ -7,10 +7,12 @@ export const systemTitle: SystemTitle = {
 }
 
 export const PAGE_ROUTE = {
+    Login: "/login",
     Dashboard: "/dashboard",
     BookManagement: "/book-management",
     UserManagement: "/user-management",
-    BorrowRecord: "/borrow-record"
+    BorrowRecord: "/borrow-record",
+    Logout: "/auth/logout"
 }
 
 export const navItems: Item[] = [
