@@ -3,7 +3,7 @@ import { withAuth } from '@/lib/withAuth'
 
 
 const page = async() => {
-  const user = await withAuth();
+  await withAuth();
   return (
     <PageLayout>
       <div>page</div>

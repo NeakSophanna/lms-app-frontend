@@ -1,3 +1,4 @@
+import { Auth0User } from "@/helpers/types"
 import { type LucideIcon } from "lucide-react"
 
 export type SystemTitle = {
@@ -21,5 +22,9 @@ export type UserItem = {
 }
 
 export interface NavUserProps {
-    user: UserItem
+    user: Auth0User
+}
+
+export interface AppSidebarProps extends NavUserProps{
+    
 }
