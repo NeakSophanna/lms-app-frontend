@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { ThemeProvider } from "@/components/client/theme";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/client/sidebar";
+import Header from "@/components/client/header";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,8 +29,25 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="h-full flex flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SidebarProvider className="flex overflow-hidden">
+            <AppSidebar />
+
+            <div className="flex-col w-full">
+              <Header />
+              <main className="w-full h-full">{children}</main>
+            </div>
+          </SidebarProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
